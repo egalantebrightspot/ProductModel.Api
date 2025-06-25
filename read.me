@@ -1,0 +1,38 @@
+# Category Management Application
+
+## Overview
+
+This project provides a unified system for managing product categories using a Django REST API and an Angular single-page application (SPA). It integrates data from both Python and C# backends to streamline category management, enabling users to create, update, and view categories through a cohesive UI.
+
+## Local Setup Instructions
+
+### Prerequisites
+
+- Python 3.11+
+- Node.js 18+
+- PostgreSQL (or your preferred DB)
+- .NET SDK 7+
+- Angular CLI
+
+### Backend (Django)
+git clone https://github.com/egalantebrightspot/category_project
+cd backend/
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+
+### Frontend (Angular)
+cd frontend/
+npm install
+ng serve
+
+### Challenges
+Cross-API Integration: Merging Django and C# APIs required careful handling of CORS and consistent data schemas. Used services in Angular to isolate communication and map models.
+Error Auditing: Implemented structured logging and error propagation from C# backend to frontend using standardized error responses.
+Deployment Parity: Ensured local environments matched production by containerizing both backends with Docker Compose.
+
+### Assumptions
+Users are authenticated externally; this repo assumes authorized access to backend endpoints.
+All category data originates from the Django API unless otherwise noted by a source flag in the payload.
